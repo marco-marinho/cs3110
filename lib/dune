@@ -1,7 +1,4 @@
 (library
  (name Exercises)
  (libraries base stdio)
- (modules Exercises1 Exercises2)
- (preprocess
-  (pps ppx_inline_test ppx_assert))
- (inline_tests))
+ (modules Exercises1 Exercises2))
