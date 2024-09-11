@@ -22,6 +22,8 @@ let tests_e2 = "test suite for Exercises2" >::: [
     "5th element" >:: (fun _ -> assert_equal 5 (Exercises.Exercises2.fifth_element [1;2;3;4;5]));
     "5th element 2" >:: (fun _ -> assert_equal 0 (Exercises.Exercises2.fifth_element [1;2;3;4]));
     "rev_sort" >:: (fun _ -> assert_equal [5;4;3;2;1] (Exercises.Exercises2.rev_sort [1;2;3;4;5]));
+    "take" >:: (fun _ -> assert_equal [1;2;3;4;5] (Exercises.Exercises2.take [1;2;3;4;5;6;7;8;9;10] 5));
+    "drop" >:: (fun _ -> assert_equal [6;7;8;9;10] (Exercises.Exercises2.drop [1;2;3;4;5;6;7;8;9;10] 5));
 ]
 
 let _ = run_test_tt_main tests_e2
