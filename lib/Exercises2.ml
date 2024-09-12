@@ -1,4 +1,4 @@
-let rec product = function 
+let rec product= function 
     | [] -> 1
     | h :: t -> h * product t
 
@@ -29,7 +29,7 @@ let any_zeros lst = List.mem 0 lst
 let rec take_tr lst n acc =
     match n, lst with
     | 0, _ -> List.rev acc
-    | _, [] -> acc
+    | _, [] -> List.rev acc
     | n, h :: t -> take_tr t (n-1) (h::acc)
 
 let take lst n = take_tr lst n []
@@ -39,3 +39,23 @@ let rec drop lst n =
     |0, _ -> lst
     |_, [] -> lst
     |n, _ :: t -> drop t (n-1)
+
+let peak lst = 
+    let rec aux_peak ilst acc = 
+        match ilst with
+        | [] -> acc
+        | _ :: [] -> acc
+        | n :: m :: _ when n > m -> acc
+        | _ :: t -> aux_peak t (acc+1)
+    in aux_peak lst 0
+
+let rec monotonic lst operator =
+    match lst with 
+    | [] -> true
+    | _ :: [] -> true
+    | h :: w :: t when operator h w -> monotonic (w::t) operator
+    | _-> false
+
+let is_unimodal lst = monotonic (take lst (peak lst)) (<) 
+                    && monotonic (drop lst (peak lst)) (>)
+
