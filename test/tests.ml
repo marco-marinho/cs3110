@@ -30,4 +30,3 @@ let tests_e2 = "test suite for Exercises2" >::: [
 ]
 
 let _ = run_test_tt_main tests_e2
-
