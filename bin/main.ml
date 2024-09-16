@@ -1,14 +1,18 @@
-let rato: Exercises.Exercises2.pokemon = {name="rato";hp=60;ptype=Fire}
-let marco: Exercises.Exercises2.pokemon = {name="marco";hp=80;ptype=Water}
+let row_to_str row = List.fold_left (fun acc x -> acc ^ Printf.sprintf "%d, " x) "" row 
 
-let int_of_intoption = function None -> 0 | Some x -> x
-let print_date = function
-  | None -> print_endline "None date"
-  | Some (y, m, d) -> Printf.printf "%d/%d/%d\n" y m d
+let mat_to_str mat = List.fold_left (fun acc x -> acc ^ row_to_str x ^ "\n") "" mat
 
-let () = Printf.printf "%d" (int_of_intoption (Exercises.Exercises2.max_hp [rato; marco]))
+let mat = [[1;2;3];[4;5;6];[7;8;9]]
 
-let dates = [(2018, 2, 26); (2020, 10, 8); (1986, 12, 8)]
+let _ = print_endline (mat_to_str mat)
 
-let _ = print_date (Exercises.Exercises2.earliest_date (dates))
+let transpose = Exercises.Exercises4.transpose mat
 
+let _ = print_endline (mat_to_str transpose)
+
+let a =  [[1;0;1];[2;1;1];[0;1;1];[1;1;2]]
+let b = [[1;2;1];[2;3;1];[4;2;2]]
+
+let res = Exercises.Exercises4.mat_mul a b
+
+let _ = print_endline (mat_to_str res)

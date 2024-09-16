@@ -1,4 +1,4 @@
 (library
  (name Exercises)
  (libraries base stdio)
- (modules Exercises1 Exercises2))
+ (modules Exercises2 Exercises3 Exercises4 util))
